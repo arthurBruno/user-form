@@ -9,20 +9,32 @@ import {
 import SuccessSnackbar from '../components/SuccessSnackbar';
 import { isUserValid } from '../functions/validations';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   form: {
     display: 'grid',
     maxWidth: '600px',
-    margin: '100px auto 150px',
+    margin: '100px auto',
     gap: '20px',
+    padding: '15px',
+
+    '@media (max-width:800px)': {
+      margin: '40px auto 50px',
+      '& .MuiTypography-h3': theme.typography.h5,
+    },
   },
   buttons: {
     display: 'flex',
     placeContent: 'flex-end',
     gap: '10px',
     marginTop: '15px',
+
+    '@media (max-width:800px)': {
+      display: 'grid',
+      marginTop: '15px',
+      placeContent: 'normal',
+    },
   }
-});
+}));
 
 const Contact = () => {
   const classes = useStyles();
@@ -56,7 +68,7 @@ const Contact = () => {
   return (
     <>
       <form id="form-user" className={classes.form} onSubmit={handleSubmit}>
-        <Typography variant="h5">Informações Pessoais</Typography>
+        <Typography variant="h3">Informações Pessoais</Typography>
 
         <TextField
           label="Nome"

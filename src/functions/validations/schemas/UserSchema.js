@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import * as yup from 'yup';
 
 yup.setLocale({
@@ -16,10 +17,12 @@ yup.setLocale({
   }
 });
 
-export default {
+const userSchema = {
   name: yup.string().required(),
   birthDate: yup.string().required(), 
   email: yup.string().email().required(),
   address: yup.string().required(),
   phone: yup.string().min(10).max(11).required(),
 };
+
+export default userSchema;

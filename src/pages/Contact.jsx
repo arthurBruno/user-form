@@ -30,6 +30,7 @@ const Contact = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleClear = () => {
+    setFieldsWithError({});
     document.getElementById('name').value = '';
     document.getElementById('birth-date').value = '';
     document.getElementById('email').value = '';
@@ -55,7 +56,7 @@ const Contact = () => {
   return (
     <>
       <form id="form-user" className={classes.form} onSubmit={handleSubmit}>
-        <Typography variant="h3">Informações Pessoais</Typography>
+        <Typography variant="h5">Informações Pessoais</Typography>
 
         <TextField
           label="Nome"
